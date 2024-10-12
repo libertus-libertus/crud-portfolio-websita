@@ -1,3 +1,4 @@
+<a href="{{ route('warga.create.page') }}">Tambah Data Baru</a>
 <table border="1" cellspacing="0" cellpadding="10">
     <tr>
         <th>Nomor</th>
