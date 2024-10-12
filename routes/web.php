@@ -21,3 +21,5 @@ Route::get('/', function () {
 Route::get('/warga', [WargaController::class, 'index'])->name('warga.page');
 Route::get('/warga/create', [WargaController::class, 'create'])->name('warga.create.page');
 Route::post('/warga/store', [WargaController::class, 'store'])->name('warga.store.page');
+Route::get('/warga/{id}/edit', [WargaController::class, 'edit'])->name('warga.edit.page');
+Route::put('/warga/{id}', [WargaController::class, 'update'])->name('warga.update.page');

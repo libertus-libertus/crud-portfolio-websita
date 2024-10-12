@@ -21,4 +21,16 @@ class WargaController extends Controller
 
         return redirect()->route('warga.page');
     }
+
+    public function edit(string $id) {
+        $warga = Warga::find($id);
+        return view('warga.edit', compact('warga'));
+    }
+
+    public function update(Request $request, string $id) {
+        $warga = Warga::find($id);
+        $warga->update($request->all());
+
+        return redirect()->route('warga.page');
+    }
 }
