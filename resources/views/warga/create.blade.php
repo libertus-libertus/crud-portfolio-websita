@@ -1,26 +1,37 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Create Page</title>
-</head>
-<body>
+@extends('layouts.master')
+@section('pageTitle', 'Tambah Data')
+@section('content')
+<div class="container my-2">
     <h1>Tambah Data warga</h1>
     <form action="{{ route('warga.store.page') }}" method="post">
         @csrf
 
-        <input type="text" name="nama" placeholder="Nama Anda"> <br><br>
-        <input type="number" name="nik" placeholder="Nomor NIK"> <br><br>
-        <input type="number" name="no_kk" placeholder="Nomor KK"> <br><br>
-        <select name="jenis_kelamin">
-            <option disabled selected>Pilih Jenis Kelamin</option>
-            <option value="L">Laki-Laki</option>
-            <option value="P">Perempuan</option>
-        </select> <br><br>
-        <textarea name="alamat" cols="21" rows="10"></textarea> <br><br>
-        <input type="submit" name="submit" value="Simpan">
+        <div class="form-group mb-2">
+            <label for="nama" class="form-label">Nama Lengkap</label>
+            <input type="text" class="form-control" name="nama" id="nama" placeholder="Nama Anda">
+        </div>
+        <div class="form-group mb-2">
+            <label for="nik" class="form-label">Nomor NIK</label>
+            <input type="text" class="form-control" name="nik" id="nik" placeholder="NIK Anda">
+        </div>
+        <div class="form-group mb-2">
+            <label for="no_kk" class="form-label">Nomor KK</label>
+            <input type="text" class="form-control" name="no_kk" id="no_kk" placeholder="Nomor KK">
+        </div>
+        <div class="form-group mb-2">
+            <label for="jenis_kelamin" class="form-label">Jenis Kelamin</label>
+            <select name="jenis_kelamin" class="form-control">
+                <option disabled selected>Pilih Jenis Kelamin</option>
+                <option value="L">Laki-Laki</option>
+                <option value="P">Perempuan</option>
+            </select>
+        </div>
+        <div class="form-group mb-2">
+            <label for="alamat" class="form-label">Alamat</label>
+            <textarea name="alamat" class="form-control" cols="21" rows="3"></textarea>
+        </div>
+        <input type="submit" name="submit" value="Simpan" class="btn btn-primary btn-sm">
+        <a href="{{ route('warga.page') }}" class="btn btn-secondary btn-sm">Kembali</a>
     </form>
-</body>
-</html>
+</div>
+@endsection
