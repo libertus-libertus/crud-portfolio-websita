@@ -19,6 +19,11 @@
         <td>{{ $item->alamat }}</td>
         <td>
             <a href="{{ route('warga.edit.page', $item->id) }}">Edit</a>
+            <form action="{{ route('warga.destroy.page', $item->id) }}" method="post">
+                @csrf
+                @method('delete')
+                <input type="submit" value="Hapus">
+            </form>
         </td>
     </tr>
     @empty

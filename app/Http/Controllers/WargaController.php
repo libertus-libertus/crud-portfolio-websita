@@ -33,4 +33,11 @@ class WargaController extends Controller
 
         return redirect()->route('warga.page');
     }
+
+    public function destroy(string $id) {
+        $warga = Warga::find($id);
+        $warga->delete();
+
+        return redirect()->route('warga.page');
+    }
 }
